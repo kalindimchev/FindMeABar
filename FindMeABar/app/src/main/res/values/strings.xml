@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">FindMeABar</string>
+    <string name="app_name">Find Me A Bar</string>
+    <string name="phone">Тел</string>
+    <string name="menu">Меню</string>
+    <string name="address">Адрес</string>
+    <string name="reserve">Резервирай</string>
+    <string name="description">Описание</string>
+    <string name="descriptionText">Ако сте любители на средиземноморската кухня, гръцката мусака, рибните продукти, гръцките пресни риби и техния уникален вкус, агнешките котлетчета, хрупкавите тиквички, ливанската кухня, то ресторант The MED e точното място за Вас. На място или у дома: средиземноморския полъх, удоволствието, усещането за уникалност - това е най-малкото, с което ще ни запомните. Ако харесвате гръцката музика, може да се насладите на приятните ни бузуки-вечери всеки петък и събота.</string>
 </resources>
