@@ -6,4 +6,11 @@
     <string name="reserve">Резервирай</string>
     <string name="description">Описание</string>
     <string name="descriptionText">Ако сте любители на средиземноморската кухня, гръцката мусака, рибните продукти, гръцките пресни риби и техния уникален вкус, агнешките котлетчета, хрупкавите тиквички, ливанската кухня, то ресторант The MED e точното място за Вас. На място или у дома: средиземноморския полъх, удоволствието, усещането за уникалност - това е най-малкото, с което ще ни запомните. Ако харесвате гръцката музика, може да се насладите на приятните ни бузуки-вечери всеки петък и събота.</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Log In</string>
+    <string name="signIn">Sign In</string>
+    <string name="person_name">Name</string>
+    <string name="person_email">Email address</string>
+    <string name="confirm_pass">Confirm password</string>
 </resources>
