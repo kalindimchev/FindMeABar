@@ -27,8 +27,8 @@ public class FoodAdapter extends ArrayAdapter<Food> {
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         View row = inflater.inflate(layoutId, parent);
 
-        TextView tvName = (TextView) row.findViewById(R.id.tv_food_name);
-        tvName.setText(foods.get(position).getName());
+//        TextView tvName = (TextView) row.findViewById(R.id.tv_food_name);
+//        tvName.setText(foods.get(position).getName());
 
 //        TextView tvPrice = (TextView) row.findViewById(R.id.tv_food_price);
 //        tvPrice.setText(foods.get(position).getPrice());

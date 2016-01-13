@@ -12,6 +12,28 @@
     <string name="signIn">Sign In</string>
     <string name="person_name">Name</string>
     <string name="person_email">Email address</string>
-    <string name="confirm_pass">Confirm password</string>    <string name="salads">Салати</string>
+    <string name="confirm_pass">Confirm password</string>
+    <string name="salads">Салати</string>
     <string name="foods">Храни</string>
-    <string name="drinks">Напитки</string></resources>
+    <string name="drinks">Напитки</string>
+
+    <string-array name="data">
+        <item>Pesho</item>
+        <item>Gosho</item>
+        <item>Tosho</item>
+        <item>Marin</item>
+        <item>Kalincho</item>
+        <item>Misho</item>
+        <item>Bobcho</item>
+        <item>asdfsadf</item>
+        <item>Boaaaabcho</item>
+        <item>Bobc33ho</item>
+        <item>Bobc2333ho</item>
+        <item>444</item>
+        <item>Bobsdfscho</item>
+        <item>Bsssssobcho</item>
+    </string-array>
+
+</resources>
+
+
