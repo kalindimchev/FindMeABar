@@ -1,16 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#423d3d"
+    android:focusableInTouchMode="false"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.findmeabar.findmeabar.MainActivity">
+    tools:context="com.example.toshibal.welcomescreen.MainActivity">
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Hello World!" />-->
-</RelativeLayout>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="15"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/label_main_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.5"
+        android:text="Търсите заведение?"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#feeec4" />
+
+    <TextView
+        android:id="@+id/labl_main_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.5"
+        android:text="Нека помогнем!"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#feeec4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_all"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="#8f742f"
+            android:drawableLeft="@drawable/ic_menu"
+            android:drawableStart="@drawable/ic_menu"
+            android:text="Всички"
+            android:textColor="#feeec4"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_top"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="#8f742f"
+            android:drawableEnd="@drawable/ic_top"
+            android:drawableRight="@drawable/ic_top"
+            android:text="Топ"
+            android:textColor="#feeec4"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_nearest"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="#8f742f"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawableStart="@drawable/ic_location"
+            android:text="Най-близо"
+            android:textColor="#feeec4"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_popular"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="#8f742f"
+            android:drawableEnd="@drawable/ic_thumb"
+            android:drawableRight="@drawable/ic_thumb"
+            android:text="Посещавани"
+            android:textColor="#feeec4"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:layout_weight="1"
+        android:background="#8f742f"
+        android:text="Log In"
+        android:textColor="#feeec4"
+        android:textSize="16sp" />
+
+</LinearLayout>

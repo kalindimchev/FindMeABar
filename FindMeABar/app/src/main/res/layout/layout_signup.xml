@@ -2,76 +2,90 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#423d3d">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/person_name"
-        android:id="@+id/tw_label_name" />
+        android:id="@+id/tw_label_name"
+        android:textColor="#feeec4" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_reg_name" />
+        android:id="@+id/et_reg_name"
+        android:background="#dac99c" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/person_email"
-        android:id="@+id/tw_label_email" />
+        android:id="@+id/tw_label_email"
+        android:textColor="#feeec4" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
-        android:id="@+id/et_reg_email" />
+        android:id="@+id/et_reg_email"
+        android:background="#dac99c" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/username"
-        android:id="@+id/tw_label_username" />
+        android:id="@+id/tw_label_username"
+        android:textColor="#feeec4" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_reg_username" />
+        android:id="@+id/et_reg_username"
+        android:background="#dac99c" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/password"
-        android:id="@+id/tw_label_password" />
+        android:id="@+id/tw_label_password"
+        android:textColor="#feeec4" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:id="@+id/et_reg_password" />
+        android:id="@+id/et_reg_password"
+        android:background="#dac99c" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/confirm_pass"
-        android:id="@+id/tw_label_confirm_password" />
+        android:id="@+id/tw_label_confirm_password"
+        android:textColor="#feeec4" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:id="@+id/et_reg_confirm_password" />
+        android:id="@+id/et_reg_confirm_password"
+        android:background="#dac99c" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/signIn"
         android:id="@+id/b_reg_signup_btn"
-        android:onClick="onSignupClick" />
+        android:onClick="onSignupClick"
+        android:textColor="#feeec4"
+        android:layout_marginTop="15dp"
+        android:background="#8f742f" />
 
 </LinearLayout>
