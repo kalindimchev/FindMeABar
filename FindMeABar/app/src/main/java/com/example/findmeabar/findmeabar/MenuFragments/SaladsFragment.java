@@ -1,16 +1,19 @@
-package com.example.findmeabar.findmeabar;
+package com.example.findmeabar.findmeabar.MenuFragments;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FoodsFragment extends Fragment {
+import com.example.findmeabar.findmeabar.R;
+
+public class SaladsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_menu_foods, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_menu_salads, container, false);
 
         return rootView;
     }
