@@ -12,5 +12,6 @@
     <string name="signIn">Sign In</string>
     <string name="person_name">Name</string>
     <string name="person_email">Email address</string>
-    <string name="confirm_pass">Confirm password</string>
-</resources>
+    <string name="confirm_pass">Confirm password</string>    <string name="salads">Салати</string>
+    <string name="foods">Храни</string>
+    <string name="drinks">Напитки</string></resources>
