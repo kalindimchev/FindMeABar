@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeightLarge"
-    android:padding="6dip">
+    android:padding="6dip"
+    android:background="#7a6e6e">
 
 
     <ImageView
@@ -28,7 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="LargeText"/>
+            android:text="LargeText"
+            android:textColor="#feeec4" />
 
         <TextView
             android:id="@+id/tw_address"
@@ -36,14 +38,16 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#feeec4" />
 
         <TextView
             android:id="@+id/tw_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#feeec4" />
 
     </LinearLayout>
 
