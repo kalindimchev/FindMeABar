@@ -58,7 +58,8 @@
             android:drawableStart="@drawable/ic_menu"
             android:text="Всички"
             android:textColor="#feeec4"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:onClick="onBtnClick"/>
 
         <Button
             android:id="@+id/btn_top"
@@ -71,7 +72,8 @@
             android:drawableRight="@drawable/ic_top"
             android:text="Топ"
             android:textColor="#feeec4"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:onClick="onBtnClick" />
     </LinearLayout>
 
     <LinearLayout
@@ -91,7 +93,8 @@
             android:drawableStart="@drawable/ic_location"
             android:text="Най-близо"
             android:textColor="#feeec4"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:onClick="onBtnClick" />
 
         <Button
             android:id="@+id/btn_popular"
@@ -104,7 +107,8 @@
             android:drawableRight="@drawable/ic_thumb"
             android:text="Посещавани"
             android:textColor="#feeec4"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:onClick="onBtnClick" />
     </LinearLayout>
 
     <Button
@@ -116,6 +120,7 @@
         android:background="#8f742f"
         android:text="Log In"
         android:textColor="#feeec4"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:onClick="onBtnClick" />
 
 </LinearLayout>

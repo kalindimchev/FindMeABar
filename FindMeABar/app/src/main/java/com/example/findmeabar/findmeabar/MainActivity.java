@@ -31,12 +31,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_display);
+        setContentView(R.layout.activity_main);
         Intent in = new Intent(this, SingleRestaurantActivity.class);
-        startActivity(in);
+        //startActivity(in);
 
     }
-
 
 
 
@@ -61,28 +60,29 @@ public class MainActivity extends AppCompatActivity {
 //        });
 //    }
 
-//    public void onBtnClick(View view) {
-//        Button b;
-//        switch (view.getId()) {
-//            case R.id.btn_call:
-//                b = (Button) findViewById(view.getId());
-//                Toast.makeText(this, b.getText(), Toast.LENGTH_SHORT).show();
-//                Intent in = new Intent(this.getApplication(), Display.class);
-//                startActivity(in);
-//                break;
-//            case R.id.btn_address:
-//                b = (Button) findViewById(view.getId());
-//                Toast.makeText(this, b.getText(), Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.btn_menu:
-//                Toast.makeText(this, "MENU button clicked!", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.btn_reserve:
-//                Toast.makeText(this, "RESERVE button clicked!", Toast.LENGTH_SHORT).show();
-//                break;
-//            default:
-//                Toast.makeText(this, "OTHER BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
-//        }
-//    }
+    public void onBtnClick(View view) {
+        Button b;
+        switch (view.getId()) {
+            case R.id.btn_all:
+                Toast.makeText(this, "All button clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btn_top:
+                Toast.makeText(this, "Top button clicked", Toast.LENGTH_SHORT).show();
+                Intent in = new Intent(this, SingleRestaurantActivity.class);
+                startActivity(in);
+                break;
+            case R.id.btn_nearest:
+                Toast.makeText(this, "Nearest button clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btn_popular:
+                Toast.makeText(this, "Popular button clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btn_login:
+                Toast.makeText(this, "Login button clicked", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                Toast.makeText(this, "OTHER BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 }
