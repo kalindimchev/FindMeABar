@@ -6,21 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv2_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Кюфтета"/>
-
-    <TextView
-        android:id="@+id/tv2_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Кебапчета"/>
-
-    <TextView
-        android:id="@+id/tv2_3"
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Пържола"/>
+        android:id="@+id/lv_foods"/>
+
 </LinearLayout>

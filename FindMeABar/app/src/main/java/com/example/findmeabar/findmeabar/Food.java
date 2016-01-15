@@ -1,7 +1,13 @@
 package com.example.findmeabar.findmeabar;
 
 
+import com.telerik.everlive.sdk.core.serialization.ServerProperty;
+import com.telerik.everlive.sdk.core.serialization.ServerType;
+
+@ServerType("Person")
 public class Food {
+
+    @ServerProperty("FirstName")
     private String name;
 
     public String getName() {
@@ -12,6 +18,7 @@ public class Food {
         this.name = name;
     }
 
+    @ServerProperty("LastName")
     private String price;
 
     public String getPrice() {

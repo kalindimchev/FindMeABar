@@ -9,26 +9,68 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.findmeabar.findmeabar.Food;
+import com.example.findmeabar.findmeabar.FoodAdapter;
 import com.example.findmeabar.findmeabar.R;
+import com.telerik.everlive.sdk.core.EverliveApp;
+import com.telerik.everlive.sdk.core.EverliveAppSettings;
+import com.telerik.everlive.sdk.core.result.RequestResult;
+import com.telerik.everlive.sdk.core.result.RequestResultCallbackAction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SaladsFragment extends Fragment {
 
     ListView listView;
     String[] data;
+    List<Food> salads;
+    EverliveApp myApp;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_menu_salads, container, false);
 
+        initializeSdk();
+
         listView = (ListView) rootView.findViewById(R.id.lv_menu_item);
 
-        data = getResources().getStringArray(R.array.data);
+        initializeSdk();
+        salads = new ArrayList<Food>();
+        getAllEntries();
+        FoodAdapter adapter = new FoodAdapter(getContext(), R.layout.layout_single_menu_item, salads);
 
-        ArrayAdapter<String> adap = new ArrayAdapter<String>(this.getActivity(), R.layout.layout_single_menu_item, R.id.tv_food_name, data);
+//        data = getResources().getStringArray(R.array.data);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.layout_single_menu_item, R.id.tv_food_name, data);
 
-        listView.setAdapter(adap);
+
+        listView.setAdapter(adapter);
+
         return rootView;
+    }
+
+    private void initializeSdk() {
+        String appId = "ce9fho1ly52u25nl";
+        EverliveAppSettings appSettings = new EverliveAppSettings();
+        appSettings.setAppId(appId);
+
+        myApp = new EverliveApp(appSettings);
+    }
+
+    private void getAllEntries() {
+        myApp.workWith().data(Food.class).getAll().executeAsync(new RequestResultCallbackAction<ArrayList<Food>>() {
+            @Override
+            public void invoke(RequestResult<ArrayList<Food>> requestResult) {
+                if (requestResult.getSuccess()) {
+                    for (Food f : requestResult.getValue()) {
+                        Food newFood = new Food(f.getName(), f.getName());
+                        salads.add(newFood);
+                    }
+                } else {
+                    System.out.println("EEEEError: " + requestResult.getError().toString());
+                }
+            }
+        });
     }
 }

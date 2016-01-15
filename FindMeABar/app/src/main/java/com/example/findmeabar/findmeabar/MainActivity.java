@@ -2,6 +2,7 @@ package com.example.findmeabar.findmeabar;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -9,71 +10,79 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.findmeabar.findmeabar.MenuFragments.DrinksFragment;
 import com.example.findmeabar.findmeabar.MenuFragments.FoodsFragment;
 import com.example.findmeabar.findmeabar.MenuFragments.SaladsFragment;
+import com.telerik.everlive.sdk.core.EverliveApp;
+import com.telerik.everlive.sdk.core.EverliveAppSettings;
+import com.telerik.everlive.sdk.core.result.RequestResult;
+import com.telerik.everlive.sdk.core.result.RequestResultCallbackAction;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    EverliveApp myApp;
     ViewPager viewPager;
-    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_menu );
-
-//        actionBar = getActionBar();
-//        actionBar.setNavigationMode(actionBar.NAVIGATION_MODE_TABS);
-//
-//        ActionBar.Tab saladsTab = actionBar.newTab();
-//        saladsTab.setText(R.string.salads);
-//        saladsTab.setTabListener((ActionBar.TabListener) this);
-//
-//        ActionBar.Tab foodsTab = actionBar.newTab();
-//        foodsTab.setText(R.string.foods);
-//        foodsTab.setTabListener((ActionBar.TabListener) this);
-//
-//        ActionBar.Tab drinksTab = actionBar.newTab();
-//        drinksTab.setText(R.string.drinks);
-//        drinksTab.setTabListener((ActionBar.TabListener) this);
-//
-//        actionBar.addTab(saladsTab);
-//        actionBar.addTab(foodsTab);
-//        actionBar.addTab(drinksTab);
-
-
-        viewPager = (ViewPager) findViewById(R.id.vp_menu);
-        CustomViewPagerAdapter adapter = new CustomViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(adapter);
-    }
-
-
-    public static class CustomViewPagerAdapter extends FragmentPagerAdapter {
-
-        public CustomViewPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public int getCount() {
-            return 3;
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
-                    return new SaladsFragment();
-                case 1:
-                    return new FoodsFragment();
-                case 2:
-                    return new DrinksFragment();
-                default:
-                    return null;
-            }
-        }
-
+        setContentView(R.layout.layout_display);
+        Intent in = new Intent(this, SingleRestaurantActivity.class);
+        startActivity(in);
 
     }
+
+
+
+
+
+//    private void getAllEntries() {
+//        myApp.workWith().data(Food.class).getAll().executeAsync(new RequestResultCallbackAction<ArrayList<Food>>() {
+//            @Override
+//            public void invoke(RequestResult<ArrayList<Food>> requestResult) {
+//                if (requestResult.getSuccess()) {
+//                    for (Food f : requestResult.getValue()) {
+//                        if (f.getName().equals("Pishi")) {
+//                            System.out.println("Ima go Peshoooo");
+//                            return;
+//                        }
+//                        System.out.println("Blaaaaaa: " + f.getName() + " *** " + f.getPrice());
+//
+//                    }
+//                } else {
+//                    System.out.println("EEEEError: " + requestResult.getError().toString());
+//                }
+//            }
+//        });
+//    }
+
+//    public void onBtnClick(View view) {
+//        Button b;
+//        switch (view.getId()) {
+//            case R.id.btn_call:
+//                b = (Button) findViewById(view.getId());
+//                Toast.makeText(this, b.getText(), Toast.LENGTH_SHORT).show();
+//                Intent in = new Intent(this.getApplication(), Display.class);
+//                startActivity(in);
+//                break;
+//            case R.id.btn_address:
+//                b = (Button) findViewById(view.getId());
+//                Toast.makeText(this, b.getText(), Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.btn_menu:
+//                Toast.makeText(this, "MENU button clicked!", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.btn_reserve:
+//                Toast.makeText(this, "RESERVE button clicked!", Toast.LENGTH_SHORT).show();
+//                break;
+//            default:
+//                Toast.makeText(this, "OTHER BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+
 }
