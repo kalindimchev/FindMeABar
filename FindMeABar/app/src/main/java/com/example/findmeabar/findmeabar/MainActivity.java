@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
 //    private void getAllEntries() {
 //        myApp.workWith().data(Food.class).getAll().executeAsync(new RequestResultCallbackAction<ArrayList<Food>>() {
 //            @Override
@@ -78,7 +76,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Popular button clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_login:
+                Intent login = new Intent(this, LoginActivity.class);
                 Toast.makeText(this, "Login button clicked", Toast.LENGTH_SHORT).show();
+                startActivity(login);
                 break;
             default:
                 Toast.makeText(this, "OTHER BUTTON CLICKED!", Toast.LENGTH_SHORT).show();

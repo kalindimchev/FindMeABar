@@ -35,6 +35,8 @@
     </string-array>
 
     <string name="db_api_id">ce9fho1ly52u25nl</string>
+    <string name="title_activity_login_activity">Login_activity</string>
+    <string name="home">Home</string>
 
 
 </resources>

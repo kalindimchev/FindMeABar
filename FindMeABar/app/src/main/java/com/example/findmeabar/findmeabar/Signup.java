@@ -1,5 +1,6 @@
 package com.example.findmeabar.findmeabar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,15 +15,15 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.layout_signup);
     }
 
-    public void onSignupClick (View v)  {
+    public void onSignupClick(View v) {
 
-        if(v.getId() == R.id.b_reg_signup_btn){
+        if (v.getId() == R.id.b_reg_signup_btn) {
 
-            EditText name = (EditText)findViewById(R.id.et_reg_name);
-            EditText email = (EditText)findViewById(R.id.et_reg_email);
-            EditText username = (EditText)findViewById(R.id.et_reg_username);
-            EditText pass = (EditText)findViewById(R.id.et_reg_password);
-            EditText passRepeat = (EditText)findViewById(R.id.et_reg_confirm_password);
+            EditText name = (EditText) findViewById(R.id.et_reg_name);
+            EditText email = (EditText) findViewById(R.id.et_reg_email);
+            EditText username = (EditText) findViewById(R.id.et_reg_username);
+            EditText pass = (EditText) findViewById(R.id.et_reg_password);
+            EditText passRepeat = (EditText) findViewById(R.id.et_reg_confirm_password);
 
             String nameStr = name.getText().toString();
             String emailStr = email.getText().toString();
@@ -30,12 +31,17 @@ public class Signup extends AppCompatActivity {
             String passStr = pass.getText().toString();
             String passRepeatStr = passRepeat.getText().toString();
 
-            if (!passStr.equals(passRepeatStr)){
+            if (!passStr.equals(passRepeatStr)) {
                 Toast.makeText(Signup.this, "Passwords don't match", Toast.LENGTH_LONG).show();
-            }
-            else{
+            } else {
                 Toast.makeText(Signup.this, "Registered", Toast.LENGTH_LONG).show();
             }
         }
+
+    }
+
+    public void onHomeClick(View v) {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 }
