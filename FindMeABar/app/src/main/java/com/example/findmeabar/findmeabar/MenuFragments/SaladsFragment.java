@@ -26,24 +26,27 @@ public class SaladsFragment extends Fragment {
     String[] data;
     List<Food> salads;
     EverliveApp myApp;
-
+    int count = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_menu_salads, container, false);
-
-        initializeSdk();
 
         listView = (ListView) rootView.findViewById(R.id.lv_menu_item);
 
         initializeSdk();
         salads = new ArrayList<Food>();
         getAllEntries();
+
         FoodAdapter adapter = new FoodAdapter(getContext(), R.layout.layout_single_menu_item, salads);
 
 //        data = getResources().getStringArray(R.array.data);
 //        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.layout_single_menu_item, R.id.tv_food_name, data);
-
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         listView.setAdapter(adapter);
 
@@ -60,15 +63,19 @@ public class SaladsFragment extends Fragment {
 
     private void getAllEntries() {
         myApp.workWith().data(Food.class).getAll().executeAsync(new RequestResultCallbackAction<ArrayList<Food>>() {
+
             @Override
             public void invoke(RequestResult<ArrayList<Food>> requestResult) {
                 if (requestResult.getSuccess()) {
                     for (Food f : requestResult.getValue()) {
-                        Food newFood = new Food(f.getName(), f.getName());
-                        salads.add(newFood);
+//                        Food newFood = new Food();
+//                        newFood.setFirstName(f.getFirstName());
+//                        newFood.setLastName(f.getLastName());
+                        salads.add(f);
+                        count++;
                     }
                 } else {
-                    System.out.println("EEEEError: " + requestResult.getError().toString());
+                    System.out.println("*****Error*****: " + requestResult.getError().toString());
                 }
             }
         });

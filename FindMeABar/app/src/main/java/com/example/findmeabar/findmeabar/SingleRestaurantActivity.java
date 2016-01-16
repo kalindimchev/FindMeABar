@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 public class SingleRestaurantActivity extends AppCompatActivity {
+    Intent in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +24,8 @@ public class SingleRestaurantActivity extends AppCompatActivity {
                 Toast.makeText(this, "ADDRESS button clicked!", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_menu:
-                Toast.makeText(this, "MENU button clicked!", Toast.LENGTH_SHORT).show();
-                Intent in = new Intent(this, MenuActivity.class);
+                //Toast.makeText(this, "MENU button clicked!", Toast.LENGTH_SHORT).show();
+                in = new Intent(this, MenuActivity.class);
                 startActivity(in);
                 break;
             case R.id.btn_reserve:

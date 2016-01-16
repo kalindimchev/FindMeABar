@@ -1,11 +1,26 @@
 package com.example.findmeabar.findmeabar;
 
-public class Bar {
+import com.telerik.everlive.sdk.core.model.base.DataItem;
+import com.telerik.everlive.sdk.core.serialization.ServerProperty;
+import com.telerik.everlive.sdk.core.serialization.ServerType;
+
+@ServerType("Restaurant")
+public class Bar extends DataItem {
+
+    @ServerProperty("Name")
     private String name;
+
+    @ServerProperty("Address")
     private String address;
+
+    @ServerProperty("Phone")
     private String phone;
-    private String picture;
-    private int rating;
+
+//    @ServerProperty("ImageLink")
+//    private String picture;
+
+    @ServerProperty("Rating")
+    private String rating;
 
     public String getName() {
         return name;
@@ -31,19 +46,19 @@ public class Bar {
         this.phone = phone;
     }
 
-    public String getPicture() {
-        return picture;
-    }
+//    public String getPicture() {
+//        return picture;
+//    }
+//
+//    public void setPicture(String picture) {
+//        this.picture = picture;
+//    }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 

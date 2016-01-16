@@ -14,13 +14,13 @@ public class BarAdapter extends ArrayAdapter<Bar> {
 
     private Context context;
     private int layoutId;
-    private List<Bar> data;
+    private List<Bar> bars;
 
-    public BarAdapter(Context context, int resource, List<Bar> objects) {
-        super(context, resource, objects);
+    public BarAdapter(Context context, int textViewResourceId, List<Bar> objects) {
+        super(context, textViewResourceId, objects);
         this.context = context;
-        this.layoutId = resource;
-        this.data = objects;
+        this.layoutId = textViewResourceId;
+        this.bars = objects;
     }
 
     @Override
@@ -30,11 +30,16 @@ public class BarAdapter extends ArrayAdapter<Bar> {
         View row = inflater.inflate(layoutId, parent, false);
 
         TextView twName = (TextView) row.findViewById(R.id.tw_name);
-        twName.setText(data.get(position).getName());
+        twName.setText(bars.get(position).getName());
+
         TextView twAddress = (TextView) row.findViewById(R.id.tw_address);
-        twName.setText(data.get(position).getAddress());
+        twAddress.setText(bars.get(position).getAddress());
+
         TextView twPhone = (TextView) row.findViewById(R.id.tw_phone);
-        twName.setText(data.get(position).getPhone());
+        twPhone.setText(bars.get(position).getPhone());
+
+        TextView rating = (TextView) row.findViewById(R.id.rating);
+        rating.setText(bars.get(position).getRating());
 
         return row;
     }

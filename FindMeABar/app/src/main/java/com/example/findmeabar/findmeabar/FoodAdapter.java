@@ -25,13 +25,13 @@ public class FoodAdapter extends ArrayAdapter<Food> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-        View row = inflater.inflate(layoutId, parent);
+        View row = inflater.inflate(layoutId, parent, false);
 
         TextView tvName = (TextView) row.findViewById(R.id.tv_food_name);
-        tvName.setText(foods.get(position).getName());
+        tvName.setText(foods.get(position).getFirstName());
 
         TextView tvPrice = (TextView) row.findViewById(R.id.tv_food_price);
-        tvPrice.setText(foods.get(position).getPrice());
+        tvPrice.setText(foods.get(position).getLastName());
 
         return row;
     }

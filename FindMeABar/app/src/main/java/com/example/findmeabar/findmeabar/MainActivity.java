@@ -27,55 +27,33 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     EverliveApp myApp;
     ViewPager viewPager;
+    Intent in;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent in = new Intent(this, SingleRestaurantActivity.class);
-        //startActivity(in);
 
     }
 
-
-
-
-//    private void getAllEntries() {
-//        myApp.workWith().data(Food.class).getAll().executeAsync(new RequestResultCallbackAction<ArrayList<Food>>() {
-//            @Override
-//            public void invoke(RequestResult<ArrayList<Food>> requestResult) {
-//                if (requestResult.getSuccess()) {
-//                    for (Food f : requestResult.getValue()) {
-//                        if (f.getName().equals("Pishi")) {
-//                            System.out.println("Ima go Peshoooo");
-//                            return;
-//                        }
-//                        System.out.println("Blaaaaaa: " + f.getName() + " *** " + f.getPrice());
-//
-//                    }
-//                } else {
-//                    System.out.println("EEEEError: " + requestResult.getError().toString());
-//                }
-//            }
-//        });
-//    }
-
     public void onBtnClick(View view) {
-        Button b;
         switch (view.getId()) {
             case R.id.btn_all:
-                Toast.makeText(this, "All button clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "All button clicked", Toast.LENGTH_SHORT).show();
+                in = new Intent(this, AllRestaurants.class);
+                startActivity(in);
                 break;
             case R.id.btn_top:
-                Toast.makeText(this, "Top button clicked", Toast.LENGTH_SHORT).show();
-                Intent in = new Intent(this, SingleRestaurantActivity.class);
+                //Toast.makeText(this, "Top button clicked", Toast.LENGTH_SHORT).show();
+                in = new Intent(this, SingleRestaurantActivity.class);
                 startActivity(in);
                 break;
             case R.id.btn_nearest:
                 Toast.makeText(this, "Nearest button clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_popular:
-                Toast.makeText(this, "Popular button clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Popular button clicked", Toast.LENGTH_SHORT).show();
+                setContentView(R.layout.layout_display);
                 break;
             case R.id.btn_login:
                 Toast.makeText(this, "Login button clicked", Toast.LENGTH_SHORT).show();

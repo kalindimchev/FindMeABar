@@ -1,36 +1,36 @@
 package com.example.findmeabar.findmeabar;
 
 
+import com.telerik.everlive.sdk.core.model.base.DataItem;
 import com.telerik.everlive.sdk.core.serialization.ServerProperty;
 import com.telerik.everlive.sdk.core.serialization.ServerType;
 
 @ServerType("Person")
-public class Food {
+public class Food extends DataItem {
 
     @ServerProperty("FirstName")
-    private String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String firstName;
 
     @ServerProperty("LastName")
-    private String price;
+    private String lastName;
 
-    public String getPrice() {
-        return price;
+    public Food() {
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public Food(String name, String price) {
-        this.setName(name);
-        this.setPrice(price);
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
