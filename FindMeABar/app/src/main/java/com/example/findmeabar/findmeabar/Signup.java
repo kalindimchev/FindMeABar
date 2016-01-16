@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Signup extends AppCompatActivity {
 
     @Override
@@ -31,13 +34,52 @@ public class Signup extends AppCompatActivity {
             String passStr = pass.getText().toString();
             String passRepeatStr = passRepeat.getText().toString();
 
-            if (!passStr.equals(passRepeatStr)) {
-                Toast.makeText(Signup.this, "Passwords don't match", Toast.LENGTH_LONG).show();
+            if (!validateName(nameStr)) {
+                name.setError("Invalid name");
+            } else if (!validateEmail(emailStr)) {
+                email.setError("Invalid Email");
+            } else if (!validateName(usernameStr)) {
+                username.setError("Invalid username");
+            } else if (!validatePassword(passStr)) {
+                pass.setError("Password 3-9 symbols required");
+            } else if (!validatePassword(passRepeatStr)) {
+                pass.setError("Password 3-9 symbols required");
+            } else if (!passStr.equals(passRepeatStr)) {
+                pass.setError("Passwords don't match");
+                passRepeat.setError("Passwords don't match");
             } else {
                 Toast.makeText(Signup.this, "Registered", Toast.LENGTH_LONG).show();
             }
         }
 
+    }
+
+    protected boolean validateEmail(String email) {
+        if (email == null) {
+            return false;
+        }
+        String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+
+        return matcher.matches();
+    }
+
+    protected boolean validatePassword(String password) {
+        if (password == null || password.length() < 3 || password.length() > 9) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    protected boolean validateName(String name) {
+        if (name == null || name.length() < 2) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public void onHomeClick(View v) {
