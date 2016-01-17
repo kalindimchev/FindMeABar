@@ -33,8 +33,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent in = new Intent(this, SingleRestaurantActivity.class);
+        //startActivity(in);
 
     }
+
 
     public void onBtnClick(View view) {
         switch (view.getId()) {
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(in);
                 break;
             case R.id.btn_top:
-                //Toast.makeText(this, "Top button clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Top button clicked", Toast.LENGTH_SHORT).show();                Intent in = new Intent(this, SingleRestaurantActivity.class);
                 in = new Intent(this, SingleRestaurantActivity.class);
                 startActivity(in);
                 break;
@@ -52,11 +55,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Nearest button clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_popular:
+
                 //Toast.makeText(this, "Popular button clicked", Toast.LENGTH_SHORT).show();
                 setContentView(R.layout.layout_display);
                 break;
             case R.id.btn_login:
-                Toast.makeText(this, "Login button clicked", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Login button clicked", Toast.LENGTH_SHORT).show();
+                Intent login = new Intent(this, LoginActivity.class);
+
+                startActivity(login);
                 break;
             default:
                 Toast.makeText(this, "OTHER BUTTON CLICKED!", Toast.LENGTH_SHORT).show();

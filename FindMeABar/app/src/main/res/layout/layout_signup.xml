@@ -86,6 +86,16 @@
         android:onClick="onSignupClick"
         android:textColor="#feeec4"
         android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="#8f742f" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/home"
+        android:id="@+id/btn_home"
+        android:onClick="onHomeClick"
+        android:textColor="#feeec4"
         android:background="#8f742f" />
 
 </LinearLayout>

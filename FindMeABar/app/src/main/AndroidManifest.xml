@@ -20,8 +20,6 @@
         <activity android:name=".Display" />
         <activity android:name=".Signup" />
         <activity android:name=".SingleRestaurantActivity" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".AllRestaurants"></activity>
-    </application>
+        <activity android:name=".LoginActivity"></activity>		<activity android:name=".AllRestaurants"></activity>    </application>
 
 </manifest>
