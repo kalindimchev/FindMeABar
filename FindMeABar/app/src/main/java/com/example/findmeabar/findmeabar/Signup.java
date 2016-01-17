@@ -1,5 +1,7 @@
 package com.example.findmeabar.findmeabar;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,9 @@ import java.util.regex.Pattern;
 
 public class Signup extends AppCompatActivity {
 
+    private boolean userIsRegistered;
+    private boolean registerInfoIsOk;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +26,9 @@ public class Signup extends AppCompatActivity {
     public void onSignupClick(View v) {
 
         if (v.getId() == R.id.b_reg_signup_btn) {
+
+            userIsRegistered = false;
+            registerInfoIsOk = true;
 
             EditText name = (EditText) findViewById(R.id.et_reg_name);
             EditText email = (EditText) findViewById(R.id.et_reg_email);
@@ -35,23 +43,53 @@ public class Signup extends AppCompatActivity {
             String passRepeatStr = passRepeat.getText().toString();
 
             if (!validateName(nameStr)) {
-                name.setError("Invalid name");
+                name.setError(getString(R.string.warning_invalid_name));
+                registerInfoIsOk = false;
             } else if (!validateEmail(emailStr)) {
-                email.setError("Invalid Email");
+                email.setError(getString(R.string.warning_invalid_email));
+                registerInfoIsOk = false;
             } else if (!validateName(usernameStr)) {
-                username.setError("Invalid username");
+                username.setError(getString(R.string.warning_invalid_username));
+                registerInfoIsOk = false;
             } else if (!validatePassword(passStr)) {
-                pass.setError("Password 3-9 symbols required");
+                pass.setError(getString(R.string.warning_length_password));
+                registerInfoIsOk = false;
             } else if (!validatePassword(passRepeatStr)) {
-                pass.setError("Password 3-9 symbols required");
+                pass.setError(getString(R.string.warning_length_password));
+                registerInfoIsOk = false;
             } else if (!passStr.equals(passRepeatStr)) {
-                pass.setError("Passwords don't match");
-                passRepeat.setError("Passwords don't match");
-            } else {
-                Toast.makeText(Signup.this, "Registered", Toast.LENGTH_LONG).show();
+                pass.setError(getString(R.string.warning_password_not_match));
+                passRepeat.setError(getString(R.string.warning_password_not_match));
+                registerInfoIsOk = false;
+            }
+
+            if (registerInfoIsOk) {
+                CheckIfUserExists(userIsRegistered);
             }
         }
 
+    }
+
+    private void CheckIfUserExists(boolean userIsRegistered) {
+
+        AlertDialog.Builder a_builder = new AlertDialog.Builder(Signup.this, AlertDialog.THEME_HOLO_DARK);
+        if (!userIsRegistered) {
+            a_builder.setMessage(R.string.success_registration_msg);
+        } else {
+            a_builder.setMessage(R.string.user_exsists_msg);
+        }
+        a_builder.setCancelable(false);
+        a_builder
+                .setPositiveButton(R.string.label_positive_btn, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert = a_builder.create();
+        alert.setTitle(getString(R.string.alert_title_regidtration));
+        alert.show();
     }
 
     protected boolean validateEmail(String email) {
