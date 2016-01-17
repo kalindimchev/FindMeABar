@@ -34,44 +34,36 @@ public class SingleRestaurantActivity extends AppCompatActivity {
                 startActivity(in);
                 break;
             case R.id.btn_reserve:
-                Toast.makeText(this, "RESERVE button clicked!", Toast.LENGTH_SHORT).show();
-                onReserveClick();
+                //Toast.makeText(this, "RESERVE button clicked!", Toast.LENGTH_SHORT).show();
+                ReserveTableAlert();
                 break;
             default:
                 Toast.makeText(this, "OTHER BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void onReserveClick() {
-        alert_btn = (Button) findViewById(R.id.btn_reserve);
-        alert_btn.setOnClickListener(
-                new View.OnClickListener() {
+    private void ReserveTableAlert(){
+        AlertDialog.Builder a_builder = new AlertDialog.Builder(SingleRestaurantActivity.this, AlertDialog.THEME_HOLO_DARK);
+        a_builder.setMessage(R.string.alert_reserve_table_message);
+        a_builder.setCancelable(false);
+        a_builder
+                .setPositiveButton(R.string.label_positive_btn, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        AlertDialog.Builder a_builder = new AlertDialog.Builder(SingleRestaurantActivity.this, AlertDialog.THEME_HOLO_DARK);
-                        a_builder.setMessage("Резервирате маса?");
-                        a_builder.setCancelable(false);
-                        a_builder
-                                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Toast.makeText(SingleRestaurantActivity.this, "Резервацията е приета", Toast.LENGTH_LONG).show();
-                                        dialog.cancel();
-                                    }
-                                })
-                                .setNegativeButton("Не", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        Toast.makeText(SingleRestaurantActivity.this, "Резервацията е отказана", Toast.LENGTH_LONG).show();
-                                        dialog.cancel();
-                                    }
-                                });
-
-                        AlertDialog alert = a_builder.create();
-                        alert.setTitle("Резервация на маса:");
-                        alert.show();
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(SingleRestaurantActivity.this, R.string.alert_reservation_confirmed, Toast.LENGTH_LONG).show();
+                        dialog.cancel();
                     }
-                }
-        );
+                })
+                .setNegativeButton(R.string.label_negative_btn, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(SingleRestaurantActivity.this, R.string.alert_reservation_declined, Toast.LENGTH_LONG).show();
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert = a_builder.create();
+        alert.setTitle(getString(R.string.alert_reserve_table_title));
+        alert.show();
     }
 }

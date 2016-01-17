@@ -55,14 +55,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Nearest button clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_popular:
-
                 //Toast.makeText(this, "Popular button clicked", Toast.LENGTH_SHORT).show();
                 setContentView(R.layout.layout_display);
                 break;
             case R.id.btn_login:
                 //Toast.makeText(this, "Login button clicked", Toast.LENGTH_SHORT).show();
                 Intent login = new Intent(this, LoginActivity.class);
-
                 startActivity(login);
                 break;
             default:
