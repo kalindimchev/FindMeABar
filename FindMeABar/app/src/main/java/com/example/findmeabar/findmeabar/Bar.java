@@ -13,6 +13,9 @@ public class Bar extends DataItem {
     @ServerProperty("Address")
     private String address;
 
+    @ServerProperty("Description")
+    private String Description;
+
     @ServerProperty("Phone")
     private String phone;
 
@@ -36,6 +39,14 @@ public class Bar extends DataItem {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
     }
 
     public String getPhone() {

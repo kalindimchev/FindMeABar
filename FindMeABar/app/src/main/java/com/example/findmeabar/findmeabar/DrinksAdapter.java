@@ -1,5 +1,6 @@
 package com.example.findmeabar.findmeabar;
 
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,16 +11,16 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class FoodAdapter extends ArrayAdapter<Food> {
+public class DrinksAdapter extends ArrayAdapter<Drink> {
     private Context context;
     private int layoutId;
-    private List<Food> foods;
+    private List<Drink> drinks;
 
-    public FoodAdapter(Context context, int textViewResourceId, List<Food> objects) {
+    public DrinksAdapter(Context context, int textViewResourceId, List<Drink> objects) {
         super(context, textViewResourceId, objects);
         this.context = context;
         layoutId = textViewResourceId;
-        foods = objects;
+        drinks = objects;
     }
 
     @Override
@@ -28,10 +29,10 @@ public class FoodAdapter extends ArrayAdapter<Food> {
         View row = inflater.inflate(layoutId, parent, false);
 
         TextView tvName = (TextView) row.findViewById(R.id.tv_food_name);
-        tvName.setText(foods.get(position).getName());
+        tvName.setText(drinks.get(position).getName());
 
         TextView tvPrice = (TextView) row.findViewById(R.id.tv_food_price);
-        tvPrice.setText(foods.get(position).getPrice());
+        tvPrice.setText(drinks.get(position).getPrice());
 
         return row;
     }

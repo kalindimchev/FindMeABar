@@ -6,21 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/tv3_1"
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Бира"/>
-
-    <TextView
-        android:id="@+id/tv3_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Вино"/>
-
-    <TextView
-        android:id="@+id/tv3_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Вода"/>
+        android:layout_height="match_parent"
+        android:id="@+id/lv_drinks"/>
 </LinearLayout>

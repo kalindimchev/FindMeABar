@@ -3,6 +3,7 @@
     package="com.example.findmeabar.findmeabar">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -20,6 +21,11 @@
         <activity android:name=".Display" />
         <activity android:name=".Signup" />
         <activity android:name=".SingleRestaurantActivity" />
-        <activity android:name=".LoginActivity"></activity>		<activity android:name=".AllRestaurants"></activity>    </application>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".AllRestaurants" />
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".TestActivity" />
+        <activity android:name=".SecondTestActivity"></activity>
+    </application>
 
 </manifest>

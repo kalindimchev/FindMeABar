@@ -19,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(i);
         }
 
+
         if(v.getId() == R.id.b_signin_btn){
             Intent i = new Intent(this, Signup.class);
             startActivity(i);

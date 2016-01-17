@@ -8,11 +8,23 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.findmeabar.findmeabar.Drink;
+import com.example.findmeabar.findmeabar.DrinksAdapter;
+import com.example.findmeabar.findmeabar.Food;
+import com.example.findmeabar.findmeabar.FoodAdapter;
 import com.example.findmeabar.findmeabar.R;
+import com.telerik.everlive.sdk.core.EverliveApp;
+import com.telerik.everlive.sdk.core.EverliveAppSettings;
+import com.telerik.everlive.sdk.core.result.RequestResult;
+import com.telerik.everlive.sdk.core.result.RequestResultCallbackAction;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FoodsFragment extends Fragment {
     ListView listView;
-    String[] data;
+    List<Food> foods;
+    EverliveApp myApp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -20,11 +32,44 @@ public class FoodsFragment extends Fragment {
 
         listView = (ListView) rootView.findViewById(R.id.lv_foods);
 
-        data = getResources().getStringArray(R.array.data);
+        initializeSdk();
+        foods = new ArrayList<Food>();
+        getAllEntries();
 
-        ArrayAdapter<String> adap = new ArrayAdapter<String>(this.getActivity(), R.layout.layout_single_menu_item, R.id.tv_food_name, data);
+        FoodAdapter adapter = new FoodAdapter(getContext(), R.layout.layout_single_menu_item, foods);
 
-        listView.setAdapter(adap);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        listView.setAdapter(adapter);
+
         return rootView;
+    }
+
+    private void initializeSdk() {
+        String appId = "ce9fho1ly52u25nl";
+        EverliveAppSettings appSettings = new EverliveAppSettings();
+        appSettings.setAppId(appId);
+
+        myApp = new EverliveApp(appSettings);
+    }
+
+    private void getAllEntries() {
+        myApp.workWith().data(Food.class).getAll().executeAsync(new RequestResultCallbackAction<ArrayList<Food>>() {
+
+            @Override
+            public void invoke(RequestResult<ArrayList<Food>> requestResult) {
+                if (requestResult.getSuccess()) {
+                    for (Food f : requestResult.getValue()) {
+                        foods.add(f);
+                    }
+                } else {
+                    System.out.println("*****Error*****: " + requestResult.getError().toString());
+                }
+            }
+        });
     }
 }

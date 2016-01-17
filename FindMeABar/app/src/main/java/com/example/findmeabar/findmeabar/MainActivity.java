@@ -3,6 +3,7 @@ package com.example.findmeabar.findmeabar;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -33,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent in = new Intent(this, SingleRestaurantActivity.class);
-        //startActivity(in);
+//        Intent in = new Intent(this, TestActivity.class);
+//        startActivity(in);
 
     }
 
@@ -52,12 +53,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(in);
                 break;
             case R.id.btn_nearest:
+//                in = new Intent(Intent.ACTION_CALL);
+//                in.setData(Uri.parse("tel:00000"));
+//                startActivity(in);
                 Toast.makeText(this, "Nearest button clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_popular:
 
-                //Toast.makeText(this, "Popular button clicked", Toast.LENGTH_SHORT).show();
-                setContentView(R.layout.layout_display);
+                Toast.makeText(this, "Popular button clicked", Toast.LENGTH_SHORT).show();
+//                in = new Intent(this, PopularRestaurantsActiviy.class);
+//                startActivity(in);
                 break;
             case R.id.btn_login:
                 //Toast.makeText(this, "Login button clicked", Toast.LENGTH_SHORT).show();

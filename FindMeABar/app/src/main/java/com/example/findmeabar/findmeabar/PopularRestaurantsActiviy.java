@@ -1,17 +1,9 @@
 package com.example.findmeabar.findmeabar;
 
-import android.app.ListActivity;
-import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.telerik.everlive.sdk.core.EverliveApp;
 import com.telerik.everlive.sdk.core.EverliveAppSettings;
@@ -21,10 +13,13 @@ import com.telerik.everlive.sdk.core.result.RequestResultCallbackAction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllRestaurants extends AppCompatActivity {
+/**
+ * Created by kalin on 17.1.2016 г..
+ */
+public class PopularRestaurantsActiviy extends AppCompatActivity {
     ListView listView;
     String[] data;
-    List<Bar> bars;
+    List<Bar> r;
     EverliveApp myApp;
 
     @Override
@@ -35,25 +30,18 @@ public class AllRestaurants extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.lv_all_restaurants);
 
         initializeSdk();
-        bars = new ArrayList<Bar>();
+        r = new ArrayList<Bar>();
         getAllEntries();
 
-        BarAdapter adapter = new BarAdapter(this, R.layout.layout_list_bars, bars);
+        BarAdapter adapter = new BarAdapter(this, R.layout.layout_list_bars, r);
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(700);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), "Bla", Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 
@@ -72,7 +60,7 @@ public class AllRestaurants extends AppCompatActivity {
             public void invoke(RequestResult<ArrayList<Bar>> requestResult) {
                 if (requestResult.getSuccess()) {
                     for (Bar f : requestResult.getValue()) {
-                        bars.add(f);
+                        r.add(f);
                     }
                 } else {
                     System.out.println("*****Error*****: " + requestResult.getError().toString());
@@ -80,6 +68,4 @@ public class AllRestaurants extends AppCompatActivity {
             }
         });
     }
-
-
 }

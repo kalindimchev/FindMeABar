@@ -3,6 +3,7 @@ package com.example.findmeabar.findmeabar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,9 @@ public class SingleRestaurantActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.btn_call:
                 Toast.makeText(this, "CALL button clicked!", Toast.LENGTH_SHORT).show();
+//                in = new Intent(Intent.ACTION_CALL);
+//                in.setData(Uri.parse("tel:00000"));
+//                startActivity(in);
                 break;
             case R.id.btn_address:
                 Toast.makeText(this, "ADDRESS button clicked!", Toast.LENGTH_SHORT).show();

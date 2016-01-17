@@ -12,6 +12,8 @@ import android.widget.ListView;
 import com.example.findmeabar.findmeabar.Food;
 import com.example.findmeabar.findmeabar.FoodAdapter;
 import com.example.findmeabar.findmeabar.R;
+import com.example.findmeabar.findmeabar.Salad;
+import com.example.findmeabar.findmeabar.SaladsAdapter;
 import com.telerik.everlive.sdk.core.EverliveApp;
 import com.telerik.everlive.sdk.core.EverliveAppSettings;
 import com.telerik.everlive.sdk.core.result.RequestResult;
@@ -23,27 +25,23 @@ import java.util.List;
 public class SaladsFragment extends Fragment {
 
     ListView listView;
-    String[] data;
-    List<Food> salads;
+    List<Salad> salads;
     EverliveApp myApp;
-    int count = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_menu_salads, container, false);
 
-        listView = (ListView) rootView.findViewById(R.id.lv_menu_item);
+        listView = (ListView) rootView.findViewById(R.id.lv_salads);
 
         initializeSdk();
-        salads = new ArrayList<Food>();
+        salads = new ArrayList<Salad>();
         getAllEntries();
 
-        FoodAdapter adapter = new FoodAdapter(getContext(), R.layout.layout_single_menu_item, salads);
+        SaladsAdapter adapter = new SaladsAdapter(getContext(), R.layout.layout_single_menu_item, salads);
 
-//        data = getResources().getStringArray(R.array.data);
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.layout_single_menu_item, R.id.tv_food_name, data);
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -62,17 +60,13 @@ public class SaladsFragment extends Fragment {
     }
 
     private void getAllEntries() {
-        myApp.workWith().data(Food.class).getAll().executeAsync(new RequestResultCallbackAction<ArrayList<Food>>() {
+        myApp.workWith().data(Salad.class).getAll().executeAsync(new RequestResultCallbackAction<ArrayList<Salad>>() {
 
             @Override
-            public void invoke(RequestResult<ArrayList<Food>> requestResult) {
+            public void invoke(RequestResult<ArrayList<Salad>> requestResult) {
                 if (requestResult.getSuccess()) {
-                    for (Food f : requestResult.getValue()) {
-//                        Food newFood = new Food();
-//                        newFood.setFirstName(f.getFirstName());
-//                        newFood.setLastName(f.getLastName());
-                        salads.add(f);
-                        count++;
+                    for (Salad s : requestResult.getValue()) {
+                        salads.add(s);
                     }
                 } else {
                     System.out.println("*****Error*****: " + requestResult.getError().toString());
