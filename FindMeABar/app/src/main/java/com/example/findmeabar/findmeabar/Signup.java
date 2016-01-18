@@ -9,18 +9,40 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.telerik.everlive.sdk.core.EverliveApp;
+import com.telerik.everlive.sdk.core.EverliveAppSettings;
+import com.telerik.everlive.sdk.core.result.RequestResult;
+import com.telerik.everlive.sdk.core.result.RequestResultCallbackAction;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Signup extends AppCompatActivity {
-
+    EverliveApp myApp;
+    List<User> users;
+//    List<User> users;
     private boolean userIsRegistered;
     private boolean registerInfoIsOk;
+    private String nameStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_signup);
+
+        initializeSdk();
+        users = new ArrayList<User>();
+//        users = new ArrayList<User>();
+    }
+
+    private void initializeSdk() {
+        String appId = "ce9fho1ly52u25nl";
+        EverliveAppSettings appSettings = new EverliveAppSettings();
+        appSettings.setAppId(appId);
+
+        myApp = new EverliveApp(appSettings);
     }
 
     public void onSignupClick(View v) {
@@ -36,7 +58,7 @@ public class Signup extends AppCompatActivity {
             EditText pass = (EditText) findViewById(R.id.et_reg_password);
             EditText passRepeat = (EditText) findViewById(R.id.et_reg_confirm_password);
 
-            String nameStr = name.getText().toString();
+            nameStr = name.getText().toString();
             String emailStr = email.getText().toString();
             String usernameStr = username.getText().toString();
             String passStr = pass.getText().toString();
@@ -64,10 +86,36 @@ public class Signup extends AppCompatActivity {
             }
 
             if (registerInfoIsOk) {
+                getAllEntries();
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 CheckIfUserExists(userIsRegistered);
             }
         }
 
+    }
+
+    private void getAllEntries() {
+        myApp.workWith().data(User.class).getAll().executeAsync(new RequestResultCallbackAction<ArrayList<User>>() {
+
+            @Override
+            public void invoke(RequestResult<ArrayList<User>> requestResult) {
+                if (requestResult.getSuccess()) {
+                    for (User u : requestResult.getValue()) {
+                        users.add(u);
+                        if (u.getUserName() == nameStr) {
+                            userIsRegistered = true;
+                            return;
+                        }
+                    }
+                } else {
+                    System.out.println("*****Error*****: " + requestResult.getError().toString());
+                }
+            }
+        });
     }
 
     private void CheckIfUserExists(boolean userIsRegistered) {

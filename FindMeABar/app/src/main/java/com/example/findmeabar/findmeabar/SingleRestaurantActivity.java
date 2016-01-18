@@ -24,10 +24,10 @@ public class SingleRestaurantActivity extends AppCompatActivity {
     public void onBtnClick(View view) {
         switch (view.getId()) {
             case R.id.btn_call:
-                Toast.makeText(this, "CALL button clicked!", Toast.LENGTH_SHORT).show();
-//                in = new Intent(Intent.ACTION_CALL);
-//                in.setData(Uri.parse("tel:00000"));
-//                startActivity(in);
+//                Toast.makeText(this, "CALL button clicked!", Toast.LENGTH_SHORT).show();
+                in = new Intent(Intent.ACTION_CALL);
+                in.setData(Uri.parse("tel:0887121223"));
+                startActivity(in);
                 break;
             case R.id.btn_address:
                 Toast.makeText(this, "ADDRESS button clicked!", Toast.LENGTH_SHORT).show();

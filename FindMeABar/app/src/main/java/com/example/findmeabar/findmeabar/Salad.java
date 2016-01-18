@@ -42,7 +42,4 @@ public class Salad extends DataItem {
 
     public Salad() {
     }
-
-
-
 }
